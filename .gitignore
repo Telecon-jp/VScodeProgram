@@ -1,0 +1,11 @@
+# 编译产物
+*.exe
+*.obj
+*.o
+*.out
+*.ilk
+*.pdb
+*.dll
+
+# VS Code 本地配置（含编译器路径等机器相关设置）
+.vscode/
