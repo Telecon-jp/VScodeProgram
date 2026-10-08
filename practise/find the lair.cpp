@@ -3,7 +3,7 @@
 using namespace std;
 string booltostring (bool a)
 {
-    string st1="is the sulprit";
+    string st1="is the fucking sulprit";
     string st2="is not the sulprit";
     if(a==1)
     {

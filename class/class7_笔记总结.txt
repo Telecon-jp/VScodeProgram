@@ -1,0 +1,86 @@
+==================================================
+  class 7 笔记总结 —— 结构体
+==================================================
+
+一、结构体的概念
+  - 结构体属于用户自定义的数据类型，允许存储不同的数据类型
+  - 一般定义在 main 函数的外面
+
+二、结构体的定义
+  - 语法：struct 结构体名 { 结构体成员列表 };
+  - 注意：创建变量时 struct 关键字可以省略；
+    但一开始定义结构体时 struct 一定要写
+  - 示例：
+        struct student   // 创建名为 student 的结构体
+        {
+            string name;   // 姓名
+            int age;        // 年龄
+            int score;      // 分数
+        };
+
+三、创建结构体变量
+  1. 先创建后赋值：
+        struct student s1;
+        s1.name = ...;        // 利用 " . " 访问结构体属性
+  2. 创建的同时赋值：
+        struct student s2 = {"李四", 19, 80};
+  3. 定义结构体的同时创建变量：
+        struct student { ... } s3;
+
+四、结构体数组
+  - 将自定义的结构体放入数组中便于维护
+  - 语法：
+        struct 结构体名 数组名[元素个数] = {{}, {}, {}, ...};
+  - 示例：
+        struct student
+        {
+            string name;
+            int age;
+            int score;
+        };
+        int main()
+        {
+            struct student arr[3] =
+            {
+                {"张三", 18, 100},
+                .........
+                {"李四", 17, 90}
+            };
+            // 后续也可以更改
+            arr[1].name = "王五";
+            arr[1] = {"王五", 19, 99};
+        }
+
+五、结构体指针
+  - 利用 -> 可以通过结构体指针访问结构体属性
+  - 示例：
+        struct student s1 = {"zhangsan", 18, 100};
+        struct student *p1 = &s1;   // 指针类型也需是 student 结构体类型
+        cout << p1->name << p1->age << p1->score;
+
+六、结构体嵌套结构体
+  - 有先后顺序：先定义的结构体才能作为成员被后续结构体使用
+  - 示例：
+        struct student        // 先定义 student
+        {
+            string name;
+        };
+        struct teacher
+        {
+            string name;
+            struct student;   // 嵌套
+        };
+        teacher t1;           // 创建老师
+        student s1;           // 创建学生
+        t1.name = "Ms ren";          // 给第一层赋值
+        t1.s1.name = "xiaowang";     // 给第二层赋值
+
+七、结构体做函数参数
+  1. 值传递：直接传 struct 结构体名 结构体变量名
+  2. 地址传递：传 struct 结构体名 *p，使用结构体指针
+     - 地址传递可在函数内修改实参结构体的值
+
+八、本课示例程序（饮料信息打印）
+  - 定义 drinks 结构体（name、price、score）
+  - 用结构体数组存 3 种饮料
+  - 通过指针遍历并打印每种饮料的信息
