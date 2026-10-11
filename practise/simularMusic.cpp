@@ -85,7 +85,4 @@ int main()
         cout<<m[j].num<<" ";
     }
     return 0;
-
-
-
 }
