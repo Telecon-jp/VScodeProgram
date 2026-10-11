@@ -45,6 +45,7 @@ int &a=b实际上就是int *const a=&b
 const int &ref=10
 编译器看到的：
 int temp=10;  const int &ref=temp;
+故常量引用可以直接赋值为一个常量/定值
 
 
 
