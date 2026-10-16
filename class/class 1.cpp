@@ -70,6 +70,18 @@ int strcmp(const char* s1, const char* s2);
 strchr(s, c)	找第一个字符 c	指针，找不到返回 NULL
 strrchr(s, c)	找最后一个字符 c	常用于找扩展名
 
+position=st1.find(st2)
+在字符串st1中从前往后寻找第一个子列，返回找到的子列的第一个元素位置，找不到返回 std::string::npos
+从后往前找：position=st1.rfind(st2)
+从指定位置pos开始找：position=st1.find(st2,pos)
+
+st1=st2.substr(pos,len)
+从st2中的角标为pos的元素截取一个长度为len字串赋值给st1
+
+st1.insert(position,st2)
+在st1的下标为position之前的位置插入st2
+或者st1.insert（position,"........"）
+
 七.布尔类型
 true——真    false——假（在c++中除了0都是true）
 bool flag=true
