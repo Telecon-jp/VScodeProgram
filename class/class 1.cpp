@@ -1,20 +1,3 @@
-#include <iostream>    //预处理命令，将系统头文件包含进程序中
-#include <string>
-using namespace  std;  //用“std”表示预加载的功能/函数
-int main ()
-{                      //函数体开始
-    cout <<"i am from ruc,"<<endl<<"my name is ljp"<<endl;
-int a = 10;
-cout <<"a="<<a<<endl;
-short mun1=10;
-cout<<"the size of num1 is"<<sizeof(mun1)<<endl;
-int b=10.63;
-cout<<b<<endl;       //这里的小数b的小数部分被舍去
-char ch='a';
-cout<<"ch="<<ch<<"ch's munber stands for "<<int(ch)<<endl;
-float f1=3.1415f; 
-return 0;             //输出0表示程序正常运行
-}                       //函数体结束
 
 
 //单注释
@@ -28,9 +11,11 @@ return 0;             //输出0表示程序正常运行
 3.长整型：long
 4.长长整形：long long
 不同整形的取值范围不同
+
 二.sizeof关键字
 可以利用sizeof求出数据占用的内存大小
 sizeof(便令名称)
+
 三.实性（浮点数）
 单精度float         双精度double(更精确的小数)
 默认情况下，输出一个小数，显示六位有效数字
@@ -51,21 +36,47 @@ int main(){
     cout<<fixed<<setprecision(5)<<a;
 
 }
+
 四.字符型
 语法：char ch='a'
 注意：字符型变量的赋值内容要用单引号引起来
 且单引号内仅能有一个字母,每个字母在注册表中
 都对应着一个数字，可以用int(字符变量)查看
 对应的数字
+
 五.转义字符
 \a警报    \n换行符   打出两个\输出一个反斜杠
+
 六.字符串类型
 string sen="hello world"
+读取含空格的字符串使用getline
+             cin >> s	          getline(cin, s)
+停止条件	 遇到任意空白字符就停	只遇到换行符才停
+空白字符包括 空格、Tab、换行	          ——,
+换行符	     停止，且留在缓冲区	    停止，且读走丢弃
+前导空白	 跳过	               不跳过，原样读入
+当输入的字符串需要有空格时用getline
+字符串名.size()       输出为字符串的长度
+strcpy:字符串复制     strcpy(st1,st2)把st2赋值给st1,直到\0出现
+strcmp:逐字比较ascii表
+#include <cstring>
+int strcmp(const char* s1, const char* s2);
+返回值含义
+返回值	      含义
+0	          两个字符串完全相等
+< 0（负数）	   s1 在字典序上小于 s2
+> 0（正数）	   s1 在字典序上大于 s2
+最常见的错误：把 strcmp 当布尔用。
+strchr(s, c)	找第一个字符 c	指针，找不到返回 NULL
+strrchr(s, c)	找最后一个字符 c	常用于找扩展名
+
 七.布尔类型
 true——真    false——假（在c++中除了0都是true）
 bool flag=true
+
 八.数据的输入
 cin>>想要赋值的变量
+
 九。运算符
 算术运算符
 比较运算符
@@ -92,4 +103,19 @@ cout<<!!a<<endl;  输出结果为1（true）
 a&b：如果a与b都为真，则输出结果为真
 如果有一个或者都为假，则输出结果为假
 a||b：a和b中只要有一者为真，则结果为真
-只有a和b全为假时，输出结果为假  */
+只有a和b全为假时，输出结果为假  
+
+十。typedef声明新类型名
+typedef int ary[100];   声明一个类型叫ary，它是一个100个元素的一维数组
+ary a;     a是一个100个元素的一维数组
+ary a[100];      a是一个100个100个元素的一维数组组成的一维数组，本质上是100*100的二维数组*/
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    string st1="nwef we fwe fw";
+    int st1_len=st1.size();
+    cout<<st1_len;
+    return 0;
+}
